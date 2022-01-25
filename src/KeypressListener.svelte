@@ -5,20 +5,24 @@
     const onKeyPress = (e) => {
         const code = e.keyCode;
 
-        if (code >= 'a'.charCodeAt(0) && code < 'z'.charCodeAt(0) && $currentGuess.length < 5){
+        if (code >= 'A'.charCodeAt(0) && code <= 'Z'.charCodeAt(0) && $currentGuess.length < 5){
             $currentGuess = $currentGuess + e.key;
         }
 
         if (e.key === 'Enter'){
             document.getElementById('submitButton').click();
         }
+
+        if (e.key === 'Backspace'){
+            document.getElementById('deleteButton').click();
+        }
     }
 
     onMount(() => {
-        document.addEventListener('keypress', onKeyPress);
+        document.addEventListener('keydown', onKeyPress);
     })
 
     onDestroy(() => {
-        document.removeEventListener('keypress', onKeyPress);
+        document.removeEventListener('keydown', onKeyPress);
     })
 </script>

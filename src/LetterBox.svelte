@@ -29,11 +29,39 @@
         line-height: 32px;
         margin: 8px;
         width: 52px;
-        height: 52px;
+        aspect-ratio: 1;
         align-items: center;
         justify-content: center;
         text-transform: uppercase;
         background-color: #cccccc;
+
+        animation-name: Flip;
+        animation-duration: 1000ms;
+        animation-timing-function: ease-in;
+    }
+
+    @media (max-width: 568px) {
+        .letter {
+            width: 40px;
+        }
+    }
+
+    .tile[data-animation='flip-out'] {
+        animation-name: Flip;
+        animation-duration: 25000ms;
+        animation-timing-function: ease-in;
+    }
+
+    @keyframes Flip {
+        0% {
+            transform: rotateX(0);
+        }
+        50% {
+            transform: rotateX(-90deg);
+        }
+        100% {
+            transform: rotateX(0);
+        }
     }
 
     .yellow {

@@ -6,11 +6,12 @@
     }
 </script>
 
-<button on:click={onGuessDelete}>Delete</button>
+<button id="deleteButton" on:click={onGuessDelete}>Delete</button>
 
 <style>
-    button {
+    #deleteButton {
         background-color: dimgray;
         color: white;
+        width: 150px;
     }
 </style>

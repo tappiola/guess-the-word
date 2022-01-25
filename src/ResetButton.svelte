@@ -7,4 +7,10 @@
     }
 </script>
 
-<button on:click={onGameReset}>New game</button>
+<button id="resetButton" on:click={onGameReset}>New game</button>
+
+<style>
+    #resetButton {
+        width: 150px;
+    }
+</style>

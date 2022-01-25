@@ -30,5 +30,6 @@
 <style>
     #submitButton {
         background-color: mediumpurple;
+        width: 150px;
     }
 </style>

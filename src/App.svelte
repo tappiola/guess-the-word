@@ -3,7 +3,7 @@
 	import Field from "./Field.svelte";
 	import SubmitButton from "./SubmitButton.svelte";
 	import ResetButton from "./ResetButton.svelte";
-	import ClearGuessButton from "./ClearGuessButton.svelte";
+	import DeleteButton from "./DeleteButton.svelte";
 	import KeypressListener from "./KeypressListener.svelte";
 </script>
 
@@ -11,7 +11,7 @@
 	<Field/>
 	<Keyboard/>
 	<div class="action-buttons">
-		<ClearGuessButton/>
+		<DeleteButton/>
 		<SubmitButton/>
 		<ResetButton/>
 	</div>

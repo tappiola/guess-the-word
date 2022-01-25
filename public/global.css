@@ -60,6 +60,13 @@ button {
 	border-width: 2px;
 }
 
+@media (max-width: 568px) {
+	button {
+		padding: 5px;
+		margin: 0 5px;
+	}
+}
+
 button:disabled {
 	color: #999;
 }

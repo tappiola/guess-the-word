@@ -14,6 +14,8 @@
     }
 
     $: hitLetters = $guessedWords.reduce((prev, next) => [...prev, ...next], []);
+
+    $: console.log(hitLetters);
 </script>
 
 <button
@@ -27,13 +29,22 @@
     .keyboard-key {
         cursor: pointer;
         margin: 4px;
-        width: 30px;
         font-size: 24px;
         line-height: 32px;
         border-radius: 3px;
         display: inline-flex;
         align-items: center;
         justify-content: center;
+        padding: 12px 0;
+        width: 46px;
+        text-transform: uppercase;
+    }
+
+    @media (max-width: 568px) {
+        .keyboard-key {
+            padding: 8px 0;
+            width: 30px;
+        }
     }
 
     .green {
