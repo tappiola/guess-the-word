@@ -15,7 +15,8 @@
 
 <style>
 	.active {
-		border: 3px solid mediumpurple;
+		border: 5px solid mediumpurple;
 		background-color: #666666;
+		display: flex;
 	}
 </style>

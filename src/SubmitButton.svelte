@@ -8,6 +8,8 @@
         }
 
         if ($currentGuess === $targetWord){
+            $guessedWords =  [...$guessedWords, $currentGuess];
+            $currentGuess = '';
             $gameStatus = GAME_STATUS.WON;
             alert('You won');
             return;

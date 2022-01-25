@@ -6,4 +6,4 @@
     }
 </script>
 
-<button on:click={onGuessDelete}>New game</button>
+<button on:click={onGuessDelete}>x</button>

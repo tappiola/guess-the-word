@@ -26,6 +26,7 @@
         border: 3px solid gray;
         font-size: 32px;
         font-weight: 500;
+        line-height: 32px;
         margin: 8px;
         width: 52px;
         height: 52px;

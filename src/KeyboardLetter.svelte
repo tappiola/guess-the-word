@@ -24,7 +24,13 @@
     .keyboard-key {
         cursor: pointer;
         margin: 4px;
-        width: 25px;
+        width: 30px;
+        font-size: 24px;
+        line-height: 32px;
+        border-radius: 3px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
     }
 
     .green {
