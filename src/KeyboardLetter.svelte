@@ -1,12 +1,13 @@
 <script>
-    import {currentGuess, guessedWords, targetWord, wordLength} from "./stores";
+    import {currentGuess, gameStatus, guessedWords, targetWord, wordLength} from "./stores";
     import {getIsIndexCorrect} from "./helpers";
+    import {GAME_STATUS} from "./constants";
 
     export let letter;
     export let index;
 
     const handleButtonClick = () => {
-        if ($currentGuess.length >= $wordLength) {
+        if ($currentGuess.length >= $wordLength || $gameStatus !== GAME_STATUS.IN_PROGRESS) {
             return;
         }
 
@@ -15,7 +16,6 @@
 
     $: hitLetters = $guessedWords.reduce((prev, next) => [...prev, ...next], []);
 
-    $: console.log(hitLetters);
 </script>
 
 <button

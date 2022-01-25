@@ -1,9 +1,14 @@
 <script>
-    import { currentGuess, guessedWords} from "./stores";
+    import {currentGuess, gameStatus, guessedWords, targetWord} from "./stores";
+    import {GAME_STATUS} from "./constants";
+    import {getRandomItem} from "./helpers";
+    import {KEYWORDS} from "./keywords";
 
     const onGameReset = () => {
         $currentGuess = '';
         $guessedWords = [];
+        $gameStatus = GAME_STATUS.IN_PROGRESS;
+        $targetWord = getRandomItem(KEYWORDS);
     }
 </script>
 

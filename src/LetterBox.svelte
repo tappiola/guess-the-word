@@ -1,23 +1,24 @@
 <script>
-    import {GAME_STATUS} from "./constants";
-
     export let letter;
     export let index;
+    export let isRevealed;
+    export let isAnimated;
 
     export let isActiveRow = false;
 
     import {gameStatus, guessedWords, targetWord} from "./stores";
 
-    $: isColorAllowed = !isActiveRow || $gameStatus === GAME_STATUS.WON;
+    $: isColorAllowed = letter && isRevealed && !isActiveRow;
     $: hitLetters = $guessedWords.reduce((prev, next) => [...prev, ...next], []);
 
 </script>
 
 <div
         class="letter"
-        class:yellow="{letter && isColorAllowed && $targetWord.includes(letter)}"
+        class:yellow="{isColorAllowed && $targetWord.includes(letter)}"
         class:green="{isColorAllowed && $targetWord[index] === letter}"
         class:gray="{isColorAllowed && !$targetWord.includes(letter)}"
+        class:revealed="{isAnimated}"
 >{letter}</div>
 
 <style>
@@ -34,9 +35,11 @@
         justify-content: center;
         text-transform: uppercase;
         background-color: #cccccc;
+    }
 
+    .revealed {
         animation-name: Flip;
-        animation-duration: 1000ms;
+        animation-duration: 700ms;
         animation-timing-function: ease-in;
     }
 
@@ -46,18 +49,12 @@
         }
     }
 
-    .tile[data-animation='flip-out'] {
-        animation-name: Flip;
-        animation-duration: 25000ms;
-        animation-timing-function: ease-in;
-    }
-
     @keyframes Flip {
         0% {
             transform: rotateX(0);
         }
         50% {
-            transform: rotateX(-90deg);
+            transform: rotateX(90deg);
         }
         100% {
             transform: rotateX(0);

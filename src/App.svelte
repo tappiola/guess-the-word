@@ -5,6 +5,18 @@
 	import ResetButton from "./ResetButton.svelte";
 	import DeleteButton from "./DeleteButton.svelte";
 	import KeypressListener from "./KeypressListener.svelte";
+	import {GAME_STATUS} from "./constants";
+	import {gameStatus, isAnimating, targetWord} from "./stores";
+
+	$: if($gameStatus === GAME_STATUS.WON && !$isAnimating){
+		alert('You won');
+	}
+
+	$: if($gameStatus === GAME_STATUS.LOST && !$isAnimating){
+		alert('You lost');
+	}
+
+	$: console.log($targetWord);
 </script>
 
 <main>

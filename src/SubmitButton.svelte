@@ -8,19 +8,17 @@
         }
 
         if ($currentGuess === $targetWord){
-            $guessedWords =  [...$guessedWords, $currentGuess];
-            $currentGuess = '';
-            $gameStatus = GAME_STATUS.WON;
-            alert('You won');
-            return;
+                $guessedWords = [...$guessedWords, $currentGuess];
+                $currentGuess = '';
+                setTimeout(() => $gameStatus = GAME_STATUS.WON, 0);
+                return;
         }
 
         $guessedWords =  [...$guessedWords, $currentGuess];
         $currentGuess = '';
 
-        if ($activeRow > $attemptsCount - 1){
-            $gameStatus = GAME_STATUS.LOST;
-            alert('You lost');
+        if ($activeRow >= $attemptsCount){
+            setTimeout(() => $gameStatus = GAME_STATUS.LOST, 0);
         }
     }
 </script>

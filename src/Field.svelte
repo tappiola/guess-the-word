@@ -7,7 +7,7 @@
 
 <div class="field">
 	{#each Array($attemptsCount) as word, i}
-		<FieldRow word={setup[i] || ''} isActiveRow={i === $activeRow}/>
+		<FieldRow word={setup[i] || ''} isActiveRow={i === $activeRow} isRevealed={$guessedWords.length > i}/>
 	{/each}
 </div>
 
