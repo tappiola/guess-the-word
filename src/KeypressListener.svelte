@@ -1,12 +1,8 @@
 <script>
-    import {letterRows} from "./constants";
-
     import { onMount, onDestroy } from 'svelte';
     import {currentGuess} from "./stores";
 
     const onKeyPress = (e) => {
-        console.log(e.keyCode, e.key);
-
         const code = e.keyCode;
 
         if (code >= 'a'.charCodeAt(0) && code < 'z'.charCodeAt(0) && $currentGuess.length < 5){

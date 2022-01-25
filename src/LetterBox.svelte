@@ -8,16 +8,16 @@
 
     import {gameStatus, guessedWords, targetWord} from "./stores";
 
-    // $: isColorAllowed = !isActiveRow || $gameStatus === GAME_STATUS.WON;
+    $: isColorAllowed = !isActiveRow || $gameStatus === GAME_STATUS.WON;
     $: hitLetters = $guessedWords.reduce((prev, next) => [...prev, ...next], []);
 
 </script>
 
 <div
         class="letter"
-        class:yellow="{letter && hitLetters.includes(letter) && $targetWord.includes(letter)}"
-        class:green="{hitLetters.includes(letter) && $targetWord[index] === letter}"
-        class:gray="{hitLetters.includes(letter) && !$targetWord.includes(letter)}"
+        class:yellow="{letter && isColorAllowed && $targetWord.includes(letter)}"
+        class:green="{isColorAllowed && $targetWord[index] === letter}"
+        class:gray="{isColorAllowed && !$targetWord.includes(letter)}"
 >{letter}</div>
 
 <style>
@@ -37,11 +37,11 @@
     }
 
     .yellow {
-        background-color: #cea727;
+        background-color: var(--yellow);
     }
 
     .green {
-        background-color: #729435;
+        background-color: var(--green);
     }
 
     .gray {

@@ -1,7 +1,9 @@
 import {derived, readable, writable} from 'svelte/store';
 import {GAME_STATUS} from './constants';
+import {getRandomItem} from "./helpers";
+import {KEYWORDS} from "./keywords";
 
-export const targetWord = writable('blush');
+export const targetWord = writable(getRandomItem(KEYWORDS));
 
 export const guessedWords = writable([]);
 

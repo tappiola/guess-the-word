@@ -10,8 +10,18 @@
 <main>
 	<Field/>
 	<Keyboard/>
-	<ClearGuessButton/>
-	<SubmitButton/>
-	<ResetButton/>
+	<div class="action-buttons">
+		<ClearGuessButton/>
+		<SubmitButton/>
+		<ResetButton/>
+	</div>
 	<KeypressListener/>
 </main>
+
+<style>
+	.action-buttons {
+		display: flex;
+		justify-content: center;
+		margin-top: 15px;
+	}
+</style>

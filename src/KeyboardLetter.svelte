@@ -1,7 +1,9 @@
 <script>
     import {currentGuess, guessedWords, targetWord, wordLength} from "./stores";
+    import {getIsIndexCorrect} from "./helpers";
 
     export let letter;
+    export let index;
 
     const handleButtonClick = () => {
         if ($currentGuess.length >= $wordLength) {
@@ -16,7 +18,8 @@
 
 <button
         class="keyboard-key"
-        class:yellow="{hitLetters.includes(letter) && $targetWord.includes(letter)}"
+        class:yellow="{hitLetters.includes(letter) && $targetWord.includes(letter) && !getIsIndexCorrect($guessedWords, $targetWord, letter)}"
+        class:green="{hitLetters.includes(letter) && getIsIndexCorrect($guessedWords, $targetWord, letter)}"
         class:gray="{hitLetters.includes(letter) && !$targetWord.includes(letter)}"
         on:click={handleButtonClick}>{letter}</button>
 
@@ -34,14 +37,15 @@
     }
 
     .green {
-        background-color: #729435;
+        background-color: var(--green);
     }
 
     .yellow {
-        background-color: yellow;
+        background-color: var(--yellow);
     }
 
     .gray {
         background-color: gray;
+        pointer-events: none;
     }
 </style>
