@@ -1,5 +1,5 @@
 <script>
-    import {currentGuess, gameStatus, guessedWords, targetWord, wordLength} from "./stores";
+    import {currentGuess, gameStatus, guessedWords, isAnimating, targetWord, wordLength} from "./stores";
     import {getIsIndexCorrect} from "./helpers";
     import {GAME_STATUS} from "./constants";
 
@@ -14,7 +14,8 @@
         $currentGuess = $currentGuess + letter;
     }
 
-    $: hitLetters = $guessedWords.reduce((prev, next) => [...prev, ...next], []);
+    $: revealedWords = $isAnimating ? $guessedWords.slice(0, -1) : $guessedWords;
+    $: hitLetters = revealedWords.reduce((prev, next) => [...prev, ...next], []);
 
 </script>
 
