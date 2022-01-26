@@ -2,7 +2,7 @@
 	import Keyboard from "./Keyboard.svelte";
 	import Field from "./Field.svelte";
 	import SubmitButton from "./SubmitButton.svelte";
-	import ResetButton from "./ResetButton.svelte";
+	import ResetButton from "./ResetButton/ResetButton.container.svelte";
 	import DeleteButton from "./DeleteButton.svelte";
 	import KeypressListener from "./KeypressListener.svelte";
 	import {GAME_STATUS} from "./constants";
@@ -13,7 +13,7 @@
 	}
 
 	$: if($gameStatus === GAME_STATUS.LOST && !$isAnimating){
-		alert('You lost');
+		alert('You lost '+ $targetWord.toUpperCase());
 	}
 
 	$: console.log($targetWord);

@@ -7,7 +7,7 @@
     export let index;
 
     const handleButtonClick = () => {
-        if ($currentGuess.length >= $wordLength || $gameStatus !== GAME_STATUS.IN_PROGRESS) {
+        if ($currentGuess.length >= $wordLength || $gameStatus !== GAME_STATUS.IN_PROGRESS || $isAnimating) {
             return;
         }
 
@@ -24,7 +24,8 @@
         class:yellow="{hitLetters.includes(letter) && $targetWord.includes(letter) && !getIsIndexCorrect($guessedWords, $targetWord, letter)}"
         class:green="{hitLetters.includes(letter) && getIsIndexCorrect($guessedWords, $targetWord, letter)}"
         class:gray="{hitLetters.includes(letter) && !$targetWord.includes(letter)}"
-        on:click={handleButtonClick}>{letter}</button>
+        on:click={handleButtonClick}>{letter}
+</button>
 
 <style>
     .keyboard-key {

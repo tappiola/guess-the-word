@@ -1,10 +1,10 @@
 <script>
     import { onMount, onDestroy } from 'svelte';
-    import {currentGuess, gameStatus} from "./stores";
+    import {currentGuess, gameStatus, isAnimating} from "./stores";
     import {GAME_STATUS} from "./constants";
 
     const onKeyPress = (e) => {
-        if($gameStatus !== GAME_STATUS.IN_PROGRESS){
+        if($gameStatus !== GAME_STATUS.IN_PROGRESS || $isAnimating){
             return;
         }
 
