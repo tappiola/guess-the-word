@@ -14,8 +14,6 @@
 		intervalId = setInterval(() => openCount += 1, 500);
 	}
 
-	$: console.log(openCount);
-
 	$: if(openCount > 6)
 	{
 		clearInterval(intervalId);

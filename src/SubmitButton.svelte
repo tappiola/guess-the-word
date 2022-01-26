@@ -1,6 +1,7 @@
 <script>
     import {attemptsCount, currentGuess, guessedWords, targetWord, wordLength, gameStatus, activeRow} from "./stores";
     import {GAME_STATUS} from "./constants";
+    import {tick} from "svelte";
 
     const onWordSubmit = () => {
         if ($currentGuess.length < $wordLength) {
@@ -10,7 +11,7 @@
         if ($currentGuess === $targetWord){
                 $guessedWords = [...$guessedWords, $currentGuess];
                 $currentGuess = '';
-                setTimeout(() => $gameStatus = GAME_STATUS.WON, 0);
+                tick().then(() => $gameStatus = GAME_STATUS.WON);
                 return;
         }
 
@@ -18,7 +19,7 @@
         $currentGuess = '';
 
         if ($activeRow >= $attemptsCount){
-            setTimeout(() => $gameStatus = GAME_STATUS.LOST, 0);
+            tick().then(() => $gameStatus = GAME_STATUS.LOST);
         }
     }
 </script>

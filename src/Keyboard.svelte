@@ -8,7 +8,7 @@
     {#each letterRows as row}
         <div>
             {#each row.split('') as letter}
-                <KeyboardLetter letter={letter}/>
+                <KeyboardLetter {letter}/>
             {/each}
         </div>
     {/each}

@@ -6,7 +6,7 @@
 
     export let isActiveRow = false;
 
-    import {gameStatus, guessedWords, targetWord} from "./stores";
+    import {guessedWords, targetWord} from "./stores";
 
     $: isColorAllowed = letter && isRevealed && !isActiveRow;
     $: hitLetters = $guessedWords.reduce((prev, next) => [...prev, ...next], []);
