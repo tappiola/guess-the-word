@@ -12,14 +12,17 @@
 	let showWinModal = false;
 	let showLoseModal = false;
 
+	const animationDuration = 2000;
+	const displayDuration = 6000;
+
 	$: if($gameStatus === GAME_STATUS.WON && !$isAnimating){
 		showWinModal = true;
-		setTimeout(() => {showWinModal = false}, 2000);
+		setTimeout(() => showWinModal = false, animationDuration);
 	}
 
 	$: if($gameStatus === GAME_STATUS.LOST && !$isAnimating){
 		showLoseModal = true;
-		setTimeout(() => {showLoseModal = false}, 2000);
+		setTimeout(() => showLoseModal = false, animationDuration);
 	}
 </script>
 
@@ -32,8 +35,10 @@
 		<ResetButton/>
 	</div>
 	<KeypressListener/>
-	<Notification showModal={showWinModal}>You won!!!</Notification>
-	<Notification showModal={showLoseModal}>{'You lost '+ $targetWord.toUpperCase()}</Notification>
+	<Notification showModal={showWinModal} {displayDuration} {animationDuration}>You won!!!</Notification>
+	<Notification showModal={showLoseModal} {displayDuration} {animationDuration}>
+		{'You lost ' + $targetWord.toUpperCase()}
+	</Notification>
 </main>
 
 <style>
