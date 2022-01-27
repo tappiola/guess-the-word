@@ -1,24 +1,17 @@
 <script>
-    export let letter;
-    export let index;
+    export let isLetterCorrect;
+    export let isLetterAndPositionCorrect;
+    export let isLetterWrong;
     export let isRevealed;
-    export let isAnimated;
-
-    export let isActiveRow = false;
-
-    import {guessedWords, targetWord} from "./stores";
-
-    $: isColorAllowed = letter && isRevealed && !isActiveRow;
-    $: hitLetters = $guessedWords.reduce((prev, next) => [...prev, ...next], []);
-
+    export let letter;
 </script>
 
 <div
         class="letter"
-        class:yellow="{isColorAllowed && $targetWord.includes(letter)}"
-        class:green="{isColorAllowed && $targetWord[index] === letter}"
-        class:gray="{isColorAllowed && !$targetWord.includes(letter)}"
-        class:revealed="{isAnimated}"
+        class:yellow={isLetterCorrect}
+        class:green={isLetterAndPositionCorrect}
+        class:gray={isLetterWrong}
+        class:revealed={isRevealed}
 >{letter}</div>
 
 <style>
