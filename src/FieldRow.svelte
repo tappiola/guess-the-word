@@ -1,6 +1,6 @@
 <script>
 	import LetterBox from "./LetterBox.svelte";
-	import {isAnimating, wordLength} from "./stores";
+	import {isAnimating, targetWord, wordLength} from "./stores";
 
 	export let word = '';
 	export let isActiveRow = false;
@@ -19,6 +19,8 @@
 		clearInterval(intervalId);
 		$isAnimating = false;
 	}
+
+	$: $targetWord, openCount = 0;
 
 </script>
 
