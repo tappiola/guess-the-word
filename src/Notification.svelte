@@ -1,26 +1,12 @@
 <script>
     export let showModal;
-    export let displayDuration = 6000;
-    export let animationDuration = 2000;
 
-    import { tweened } from 'svelte/motion';
-    import { cubicOut } from 'svelte/easing';
-
-    const opacity = tweened(0, {
-        duration: animationDuration,
-        easing: cubicOut
-    });
-
-    $: if (showModal) {
-        opacity.set(1);
-        setTimeout(() => opacity.set(0), displayDuration - animationDuration);
-    } else {
-        opacity.set(0);
-    }
+    import {fade, fly} from 'svelte/transition';
+    import {cubicOut} from 'svelte/easing';
 </script>
 
 {#if (showModal)}
-    <div class="modal" style="opacity: {$opacity}">
+    <div class="modal" in:fly={{y:-300, duration: 1000, easing: cubicOut}} out:fade={{duration: 1000} }>
         <slot/>
     </div>
 {/if}

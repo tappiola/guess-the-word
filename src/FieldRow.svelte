@@ -1,5 +1,5 @@
 <script>
-	import LetterBox from "./LetterBox.svelte";
+	import LetterBox from "./LetterBox/LetterBox.container.svelte";
 	import {isAnimating, targetWord, wordLength} from "./stores";
 
 	export let word = '';
