@@ -2,6 +2,6 @@
 
 <style>
     #resetButton {
-        width: 150px;
+        flex: 0 1 150px;
     }
 </style>

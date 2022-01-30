@@ -35,9 +35,14 @@
 </div>
 
 <style>
+	.word {
+		width: 100%;
+		max-width: 370px;
+		display: flex;
+	}
+
 	.active {
 		border: 5px solid mediumpurple;
 		background-color: #666666;
-		display: flex;
 	}
 </style>

@@ -22,7 +22,7 @@
         font-weight: 500;
         line-height: 32px;
         margin: 8px;
-        width: 52px;
+        flex: 1 1 52px;
         aspect-ratio: 1;
         align-items: center;
         justify-content: center;
@@ -38,7 +38,7 @@
 
     @media (max-width: 568px) {
         .letter {
-            width: 40px;
+            flex: 1 1 52px;
         }
     }
 

@@ -12,6 +12,6 @@
     #deleteButton {
         background-color: dimgray;
         color: white;
-        width: 150px;
+        flex: 0 1 150px;
     }
 </style>

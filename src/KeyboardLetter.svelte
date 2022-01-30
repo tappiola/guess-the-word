@@ -46,6 +46,7 @@
         .keyboard-key {
             padding: 8px 0;
             width: 30px;
+            max-width: 7vw;
         }
     }
 

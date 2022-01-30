@@ -5,24 +5,7 @@
 	import ResetButton from "./ResetButton/ResetButton.container.svelte";
 	import DeleteButton from "./DeleteButton.svelte";
 	import KeypressListener from "./KeypressListener.svelte";
-	import {GAME_STATUS} from "./constants";
-	import {gameStatus, isAnimating, targetWord} from "./stores";
-	import Notification from "./Notification.svelte";
-
-	let showWinModal = false;
-	let showLoseModal = false;
-
-	const displayDuration = 3000;
-
-	$: if($gameStatus === GAME_STATUS.WON && !$isAnimating){
-		showWinModal = true;
-		setTimeout(() => showWinModal = false, displayDuration);
-	}
-
-	$: if($gameStatus === GAME_STATUS.LOST && !$isAnimating){
-		showLoseModal = true;
-		setTimeout(() => showLoseModal = false, displayDuration);
-	}
+	import GameStatuses from "./GameStatuses.svelte";
 </script>
 
 <main>
@@ -34,13 +17,16 @@
 		<ResetButton/>
 	</div>
 	<KeypressListener/>
-	<Notification showModal={showWinModal}>You won!!!</Notification>
-	<Notification showModal={showLoseModal}>
-		{'You lost ' + $targetWord.toUpperCase()}
-	</Notification>
+	<GameStatuses/>
 </main>
 
 <style>
+	main {
+		height: 100%;
+		/*display: grid;*/
+		/*grid-auto-rows: auto min-content 60px;*/
+	}
+
 	.action-buttons {
 		display: flex;
 		justify-content: center;

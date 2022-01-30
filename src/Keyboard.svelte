@@ -6,7 +6,7 @@
 
 <div class="keyboard">
     {#each letterRows as row}
-        <div>
+        <div class="keyboard-row">
             {#each row.split('') as letter}
                 <KeyboardLetter {letter}/>
             {/each}
@@ -20,5 +20,9 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+    }
+
+    .keyboard-row {
+        text-align: center;
     }
 </style>

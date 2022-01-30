@@ -29,6 +29,6 @@
 <style>
     #submitButton {
         background-color: mediumpurple;
-        width: 150px;
+        flex: 0 1 150px;
     }
 </style>
