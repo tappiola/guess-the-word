@@ -1,8 +1,8 @@
 <script>
-	import {activeRow, attemptsCount, currentGuess, guessedWords} from "./stores";
-	import FieldRow from "./FieldRow.svelte";
+	import {attemptsCount, activeRow, guessedWords} from "../stores";
+	import FieldRow from "../FieldRow";
 
-	$: setup = $currentGuess ? [...$guessedWords, $currentGuess] : $guessedWords;
+	export let setup;
 </script>
 
 <div class="field">

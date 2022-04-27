@@ -25,4 +25,4 @@
                 isLetterCorrect={hitLetters.includes(letter) && $targetWord.includes(letter) && !getIsIndexCorrect($guessedWords, $targetWord, letter)}
                 isLetterAndPositionCorrect={hitLetters.includes(letter) && getIsIndexCorrect($guessedWords, $targetWord, letter)}
                 isLetterWrong={hitLetters.includes(letter) && !$targetWord.includes(letter)}
-                />
+ />

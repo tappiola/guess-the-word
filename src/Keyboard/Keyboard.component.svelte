@@ -1,7 +1,6 @@
 <script>
-    import KeyboardLetter from "./KeyboardLetter.svelte";
-    import {letterRows} from "./constants";
-
+    import KeyboardLetter from "../KeyboardLetter";
+    import {letterRows} from "../constants";
 </script>
 
 <div class="keyboard">

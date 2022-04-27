@@ -1,6 +1,7 @@
 <script>
-    import {attemptsCount, currentGuess, guessedWords, targetWord, wordLength, gameStatus, activeRow} from "./stores";
-    import {GAME_STATUS} from "./constants";
+    import SubmitButton from "./SubmitButton.component.svelte";
+    import {attemptsCount, currentGuess, guessedWords, targetWord, wordLength, gameStatus, activeRow} from "../stores";
+    import {GAME_STATUS} from "../constants";
     import {tick} from "svelte";
 
     const onWordSubmit = () => {
@@ -24,11 +25,4 @@
     }
 </script>
 
-<button id="submitButton" on:click={onWordSubmit}>Submit</button>
-
-<style>
-    #submitButton {
-        background-color: mediumpurple;
-        flex: 0 1 150px;
-    }
-</style>
+<SubmitButton {onWordSubmit}/>

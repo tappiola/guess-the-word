@@ -1,9 +1,5 @@
 <script>
-    import { currentGuess} from "./stores";
-
-    const onGuessDelete = () => {
-        $currentGuess = $currentGuess.slice(0, -1);
-    }
+    export let onGuessDelete;
 </script>
 
 <button id="deleteButton" on:click={onGuessDelete}>Delete</button>

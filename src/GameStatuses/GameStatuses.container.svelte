@@ -1,7 +1,7 @@
 <script>
-    import {GAME_STATUS} from "./constants";
-    import {gameStatus, isAnimating, targetWord} from "./stores";
-    import Notification from "./Notification.svelte";
+    import {GAME_STATUS} from "../constants";
+    import {gameStatus, isAnimating} from "../stores";
+    import GameStatuses from "./GameStatuses.component.svelte";
 
     let showWinModal = false;
     let showLoseModal = false;
@@ -19,13 +19,4 @@
     }
 </script>
 
-<main>
-    <Notification showModal={showWinModal}>You won!!!</Notification>
-    <Notification showModal={showLoseModal}>
-        <p>You lost :(</p>
-        <p>The correct word is { $targetWord.toUpperCase()}</p>
-    </Notification>
-</main>
-
-<style>
-</style>
+<GameStatuses {showWinModal} {showLoseModal}/>
