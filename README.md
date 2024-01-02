@@ -1,5 +1,5 @@
 An analogue of a famous Wordle. Developed using Svelte.
-Live demo: https://wordle.tappiola.com
+Live demo: https://wordle.tappiola.co.uk
 
 ## Get started
 
